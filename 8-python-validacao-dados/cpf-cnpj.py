@@ -1,8 +1,9 @@
 from validate_docbr import CPF, CNPJ
 
-
-"""Classe factory"""
+"""Classe Documento é uma classe factory"""
 """A partir dela, chamamos outras classes"""
+
+
 class Documento:
     @staticmethod
     def cria_documento(documento: str):
@@ -17,7 +18,7 @@ class Documento:
 class DocCpf:
     def __init__(self, documento: str):
         if self.valida(documento):
-            self.cpf = documento
+            self.cpf: str = documento
         else:
             raise ValueError("Cpf inválido!!!")
 
@@ -25,7 +26,7 @@ class DocCpf:
         return self.format()
 
     def valida(self, documento: str):
-        validador = CPF()
+        validador: CPF = CPF()
         return validador.validate(documento)
 
     def format(self):
@@ -36,7 +37,7 @@ class DocCpf:
 class DocCnpj:
     def __init__(self, documento: str):
         if self.valida(documento):
-            self.cnpj = documento
+            self.cnpj: str = documento
         else:
             raise ValueError("Cnpj inválido!!!")
 
@@ -44,7 +45,7 @@ class DocCnpj:
         return self.format()
 
     def valida(self, documento: str):
-        validador = CNPJ()
+        validador: CNPJ = CNPJ()
         return validador.validate(documento)
 
     def format(self):

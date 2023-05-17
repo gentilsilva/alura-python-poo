@@ -1,10 +1,12 @@
-from CpfCnpj import Documento
+import requests
+from acesso_cep import BuscaEndereco
 
-exemplo_cnpj = "35379838000112"
-documento_cnpj = Documento.cria_documento(exemplo_cnpj)
+cep = "31620040"
+objeto_cep = BuscaEndereco(cep)
 
-exemplo_cpf = "74778773268"
-documento_cpf = Documento.cria_documento(exemplo_cpf)
+#resposta: requests = requests.get("https://viacep.com.br/ws/01001000/json/"
 
-print(documento_cnpj)
-print(documento_cpf)
+json: dict[str, str, str]
+
+json = objeto_cep.acessa_via_cep()
+print(json)
